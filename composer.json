@@ -1,6 +1,6 @@
 {
-  "name": "chilimatic/interpreter-component",
-  "description": "interpreter component for the chilimatic-framework",
+  "name": "chilimatic/validator-component",
+  "description": "validator component for the chilimatic-framework",
   "type": "library",
   "license": "MIT",
   "version": "1.0.0",
