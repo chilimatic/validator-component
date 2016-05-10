@@ -5,7 +5,7 @@ namespace chilimatic\lib\Validator;
 use chilimatic\lib\Interfaces\IFlyWeightParser;
 use chilimatic\lib\Parser\Annotation\AnnotationValidatorParser;
 use chilimatic\lib\Transformer\String\AnnotationValidatorClassName;
-use chilimatic\lib\Transformer\String\AnnotationValidatorPrependNameSpace;
+use chilimatic\lib\Transformer\String\PrependNamespace;
 
 /**
  * Class AnnotationPropertyValidatorFactory
@@ -36,7 +36,7 @@ class AnnotationPropertyValidatorFactory
     private $classNameTransformer;
 
     /**
-     * @var AnnotationValidatorPrependNameSpace
+     * @var PrependNameSpace
      */
     private $namespaceTransformer;
 
@@ -53,7 +53,7 @@ class AnnotationPropertyValidatorFactory
     {
         $this->parser = $parser;
         $this->classNameTransformer = new AnnotationValidatorClassName();
-        $this->namespaceTransformer = new AnnotationValidatorPrependNameSpace();
+        $this->namespaceTransformer = new PrependNamespace();
     }
 
     /**
@@ -87,7 +87,7 @@ class AnnotationPropertyValidatorFactory
                     $validatorToken[AnnotationValidatorParser::INDEX_INTERFACE]
                 ),
                 [
-                    AnnotationValidatorPrependNameSpace::NAMESPACE_OPTION_INDEX => __NAMESPACE__
+                    PrependNamespace::NAMESPACE_OPTION_INDEX => __NAMESPACE__
                 ]
             );
             if (class_exists($className, true)) {
