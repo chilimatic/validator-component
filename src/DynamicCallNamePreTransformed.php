@@ -27,14 +27,14 @@ class DynamicCallNamePreTransformed implements IFlyWeightValidator
     /**
      * @var string
      */
-    private $errorMsg;
+    private $errorMsg = '';
 
     /**
      * @param mixed $content
      *
-     * @return string
+     * @return bool
      */
-    public function __invoke($content)
+    public function __invoke($content) : bool
     {
         return $this->validate($content);
     }
@@ -42,9 +42,9 @@ class DynamicCallNamePreTransformed implements IFlyWeightValidator
     /**
      * @param string $content
      *
-     * @return string
+     * @return bool
      */
-    public function validate($content)
+    public function validate($content) : bool
     {
         if (!$content) {
             return false;
@@ -71,7 +71,7 @@ class DynamicCallNamePreTransformed implements IFlyWeightValidator
     /**
      * @return string
      */
-    public function getErrorMsg()
+    public function getErrorMsg() : string
     {
         return $this->errorMsg;
     }
@@ -79,7 +79,7 @@ class DynamicCallNamePreTransformed implements IFlyWeightValidator
     /**
      * @return string
      */
-    public function getInvalidCharacters()
+    public function getInvalidCharacters() : string
     {
         return $this->invalidCharacters;
     }

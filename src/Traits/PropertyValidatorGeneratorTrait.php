@@ -25,7 +25,7 @@ Trait PropertyValidatorGeneratorTrait
      *
      * @return mixed
      */
-    private function translator($operator, $result_old, $result_new)
+    private function translator(string $operator, bool $result_old, bool $result_new) : bool
     {
         if (!$this->operatorFactory) {
             $this->operatorFactory = new InterpreterOperatorFactory();
@@ -33,13 +33,13 @@ Trait PropertyValidatorGeneratorTrait
 
         switch ($operator) {
             case '&':
-                return $this->operatorFactory->make('Binary\InterpreterBinaryAnd', null)->operate($result_old, $result_new);
+                return (bool) $this->operatorFactory->make('Binary\InterpreterBinaryAnd', null)->operate($result_old, $result_new);
                 break;
             case '|':
-                return $this->operatorFactory->make('Binary\InterpreterBinaryOr', null)->operate($result_old, $result_new);
+                return (bool) $this->operatorFactory->make('Binary\InterpreterBinaryOr', null)->operate($result_old, $result_new);
                 break;
             case '^':
-                return $this->operatorFactory->make('Binary\InterpreterBinaryXOr', null)->operate($result_old, $result_new);
+                return (bool) $this->operatorFactory->make('Binary\InterpreterBinaryXOr', null)->operate($result_old, $result_new);
                 break;
         }
 
@@ -55,7 +55,7 @@ Trait PropertyValidatorGeneratorTrait
      *
      * @return bool
      */
-    public function validateProperties()
+    public function validateProperties() : bool
     {
         if (!$this->validatorFactory) {
             $this->validatorFactory = new AnnotationPropertyValidatorFactory(
@@ -117,7 +117,7 @@ Trait PropertyValidatorGeneratorTrait
      *
      * @return \ReflectionProperty[]
      */
-    private function getReflectionPropertiesRecursive(\ReflectionClass $reflection)
+    private function getReflectionPropertiesRecursive(\ReflectionClass $reflection) : array
     {
         $properties = $reflection->getProperties();
 
@@ -137,7 +137,7 @@ Trait PropertyValidatorGeneratorTrait
      *
      * @return \Generator
      */
-    private function getPropertyReflectionGenerator()
+    private function getPropertyReflectionGenerator() : \Generator
     {
         static $reflection, $propertyList;
 

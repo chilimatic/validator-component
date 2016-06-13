@@ -14,7 +14,7 @@ class IsInt implements IFlyWeightValidator
      *
      * @return bool
      */
-    public function __invoke($value)
+    public function __invoke($value) : bool
     {
         return $this->validate($value);
     }
@@ -24,7 +24,7 @@ class IsInt implements IFlyWeightValidator
      *
      * @return bool
      */
-    public function validate($value)
+    public function validate($value) : bool
     {
         return is_int($value);
     }

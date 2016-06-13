@@ -3,7 +3,7 @@
   "description": "validator component for the chilimatic-framework",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "authors": [
       {
           "name": "Jakob Oberhummer",
@@ -11,10 +11,10 @@
       }
   ],
   "require": {
-    "php": ">=5.4",
-    "chilimatic/parser-component" : "1.*",
-    "chilimatic/transformer-component" : "1.*",
-    "chilimatic/interpreter-component": "1.*"
+    "php": ">=7",
+    "chilimatic/parser-component" : "2.*",
+    "chilimatic/transformer-component" : "2.*",
+    "chilimatic/interpreter-component": "2.*"
   },
   "require-dev": {
       "phpunit/phpunit": "4.5.*"

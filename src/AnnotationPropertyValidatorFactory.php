@@ -63,7 +63,7 @@ class AnnotationPropertyValidatorFactory
      *
      * @return array
      */
-    public function make(\ReflectionProperty $reflectionParameter)
+    public function make(\ReflectionProperty $reflectionParameter) : array
     {
         if (!$this->parser) {
             throw new \RuntimeException("Missing the parser Parser!");
