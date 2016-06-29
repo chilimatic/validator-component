@@ -98,9 +98,9 @@ Trait PropertyValidatorGeneratorTrait
             for ($x = 0; $x < $c2; $x++) {
                 // there are no groups implemented so I assume that use the AND operator
                 $setBool &= $this->translator(
+                    $resultSet[$i][$x][AnnotationValidatorParser::INDEX_OPERATOR],
                     $resultSet[$i][$x][AnnotationPropertyValidatorFactory::INDEX_RESULT],
-                    $resultSet[$i][$x][AnnotationValidatorParser::INDEX_EXPECTED],
-                    $resultSet[$i][$x][AnnotationValidatorParser::INDEX_OPERATOR]
+                    $resultSet[$i][$x][AnnotationValidatorParser::INDEX_EXPECTED]
                 );
             }
             if ($setBool == false) {
